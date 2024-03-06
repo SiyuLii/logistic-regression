@@ -14,6 +14,7 @@ bibliography: references.bib
 ---
 
 ```{r}
+#| evol: false
 #| include: false
 #| warning: false
 #| message: false
@@ -30,7 +31,6 @@ library(janitor)
 library(knitr)
 library(marginaleffects)
 library(modelsummary)
-library(rstanarm)
 library(tidybayes)
 ```
 
