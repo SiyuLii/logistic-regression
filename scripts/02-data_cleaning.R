@@ -11,7 +11,19 @@
 library(tidyverse)
 
 #### Clean data ####
-raw_data <- read_csv("inputs/data/plane_data.csv")
+ces2020 <-
+  read_csv(
+    "ces2020.csv",
+    col_types =
+      cols(
+        "votereg" = col_integer(),
+        "CC20_410" = col_integer(),
+        "gender" = col_integer(),
+        "educ" = col_integer()
+      )
+  )
+
+ces2020
 
 cleaned_data <-
   raw_data |>
@@ -41,4 +53,4 @@ cleaned_data <-
   tidyr::drop_na()
 
 #### Save data ####
-write_csv(cleaned_data, "outputs/data/analysis_data.csv")
+write_csv(cleaned_data, "outputs/data/analysis_data.parquet")

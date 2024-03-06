@@ -15,7 +15,14 @@ library(rstanarm)
 #### Read data ####
 analysis_data <- read_csv("data/analysis_data/analysis_data.csv")
 
+
 ### Model data ####
+set.seed(853)
+
+ces2020_reduced <- 
+  ces2020 |> 
+  slice_sample(n = 1000)
+
 first_model <-
   stan_glm(
     formula = flying_time ~ length + width,
